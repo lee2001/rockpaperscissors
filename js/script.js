@@ -29,10 +29,13 @@ $("#shoot").click(function(){
      console.log(randomNumber);
     if(randomNumber < .33) {
         $("#computerChoice").text("rock"); 
+        computerChoice = "rock"
     } else if(randomNumber > .33 && randomNumber < .66){
         $("#computerChoice").text("scissor")
+        computerChoice = "scissor"
     }else{
     $("#computerChoice").text("paper");
+    computerChoice = "paper"
 }
 
     if(userChoice === "rock" && computerChoice === "scissors"){
