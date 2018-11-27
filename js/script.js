@@ -8,11 +8,18 @@
 
 
 // DOCUMENT READY FUNCTION BELOW
-var userChoice;
-var computerChoice;
-var winner;
+var userChoice = "";
+var computerChoice = "";
+var winner = "";
+var computerScore = 0;
+var point = 1;
+var myPoints = 0;
+function updateTerms(){
+    $("#myPoints").text(myPoints);
+    $("#computerPoints").text(computerScore)
 
-   
+}
+
 $("#shoot").click(function(){
     userChoice = $("#input").val();
     
@@ -28,7 +35,36 @@ $("#shoot").click(function(){
     $("#computerChoice").text("paper");
 }
 
-});
+    if(userChoice === "rock" && computerChoice === "scissors"){
+        $("#winner").text("User wins");
+        myPoints += point;
+    } else if(userChoice === "rock" && computerChoice === "paper"){
+        $("#winner").text("Computer wins!");
+        computerScore += point;
+    }
+    else if(userChoice === "paper" && computerChoice === "rock"){
+        $("#winner").text("User Wins!")
+        myPoints += point;
+    }
+    else if(userChoice === "scissor" && computerChoice === "paper"){
+        $("#winner").text("User Wins!")
+        myPoints += point;
+    }
+    else if(userChoice === "paper" && computerChoice === "scissor"){
+        $("#winner").text("Computer Wins!")
+        computerScore += point;
+    }
+    else if(userChoice === "scissor" && computerChoice === "rock"){
+        $("#winner").text("Computer Wins!")
+    }
+        
+    else if(userChoice === computerChoice){
+        $("#winner").text("Tie, Try Again!")
+    }
+    updateTerms()
+}); 
+
+
     
     
     
